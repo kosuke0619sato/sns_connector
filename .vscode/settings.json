@@ -1,0 +1,30 @@
+{
+  // PowerShellの実行ポリシーを緩めて仮想環境の起動スクリプトを実行できるようにする
+"terminal.integrated.env.windows": {
+    "PSExecutionPolicyPreference": "RemoteSigned"
+  },
+  // ターミナル起動時に仮想環境も起動する (blackなどパッケージのコマンドを使えるようになります)
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  // デフォルトのPythonインタープリターを仮想環境のものにする
+  "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+  // 構文チェックを行うようにする
+  "python.linting.enabled": true,
+  // 保存時に構文チェックを行う
+  "python.linting.lintOnSave": true,
+  // 構文チェックをpylintで行わないようにする (※規定値がtrueなため)
+  "python.linting.pylintEnabled": true,
+  // mypyを有効化する
+  "python.linting.mypyEnabled": false,
+  // フォーマットをblackで行うようにする
+  "python.formatting.provider": "none",
+  // pythonファイルの設定
+  "[python]": {
+    // 保存時にimport文のソートなどを行う
+    "editor.codeActionsOnSave": { 
+      "source.organizeImports": true
+    },
+    // 保存時にフォーマットを行う
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+}
